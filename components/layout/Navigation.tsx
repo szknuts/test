@@ -1,8 +1,16 @@
+/**
+ * レスポンシブナビゲーションバー
+ * スクロールで背景を変え、スマホではハンバーガーメニューを提供する
+ */
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaInstagram } from "react-icons/fa";
+
+import MobileMenu from "./MobileMenu";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,98 +24,85 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const textColor = scrolled ? "text-gray-900" : "text-white";
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
+  const navBg = scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent";
+
+  const links = [
+    { name: "ホーム", href: "/" },
+    { name: "部員紹介", href: "#members" },
+    { name: "ブログ", href: "/blog" },
+    { name: "TEST", href: "/tmp" },
+  ];
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all ${
-        scrolled
-          ? "bg-white/95 backdrop-blur shadow border-b"
-          : "bg-transparent"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${navBg}`}
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/">
+        <div className="flex items-center justify-between h-20">
+          <Link href="/" className="relative z-50">
             <Image
               src="/images/logo.png"
               alt="近畿大学体育会ボクシング部"
               width={200}
               height={48}
-              className="h-10 w-auto"
+              className="h-12 w-auto"
             />
           </Link>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className={`${textColor} hover:text-red-600`}>
-              ホーム
-            </Link>
-            <a href="#members" className={`${textColor} hover:text-red-600`}>
-              部員紹介
-            </a>
-            <Link href="/blog" className={`${textColor} hover:text-red-600`}>
-              ブログ
-            </Link>
+            {links.map((link) => (
+              <Link 
+                key={link.name}
+                href={link.href} 
+                className="text-white hover:text-red-500 transition-colors font-medium tracking-wide"
+              >
+                {link.name}
+              </Link>
+            ))}
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/kindaiboxing/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`${textColor} hover:text-red-600`}
+              className="px-6 py-2 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white rounded-full font-bold hover:shadow-lg hover:scale-105 transition-all flex items-center gap-2"
             >
-              Instagram
+              <FaInstagram /> Instagram
             </a>
           </div>
 
+          {/* Hamburger Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden ${textColor}`}
+            className="md:hidden relative z-[70] text-white p-2"
           >
-            <svg className="h-6 w-6" fill="none" stroke="currentColor">
-              {isOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            <div className="w-8 h-6 flex flex-col justify-between">
+              <motion.span 
+                animate={isOpen ? { rotate: 45, y: 11 } : { rotate: 0, y: 0 }}
+                className="w-full h-0.5 bg-white block transition-all origin-center"
+              />
+              <motion.span 
+                animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="w-full h-0.5 bg-white block transition-all"
+              />
+              <motion.span 
+                animate={isOpen ? { rotate: -45, y: -11 } : { rotate: 0, y: 0 }}
+                className="w-full h-0.5 bg-white block transition-all origin-center"
+              />
+            </div>
           </button>
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden bg-white border-t">
-          <div className="p-4 space-y-2">
-            <Link
-              href="/"
-              className="block px-3 py-2 hover:bg-gray-100 rounded"
-              onClick={() => setIsOpen(false)}
-            >
-              ホーム
-            </Link>
-            <a
-              href="#members"
-              className="block px-3 py-2 hover:bg-gray-100 rounded"
-              onClick={() => setIsOpen(false)}
-            >
-              部員紹介
-            </a>
-            <Link
-              href="/blog"
-              className="block px-3 py-2 hover:bg-gray-100 rounded"
-              onClick={() => setIsOpen(false)}
-            >
-              ブログ
-            </Link>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block px-3 py-2 hover:bg-gray-100 rounded"
-            >
-              Instagram
-            </a>
-          </div>
-        </div>
-      )}
+      <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} links={links} />
     </nav>
   );
 }

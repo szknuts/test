@@ -1,4 +1,9 @@
+/**
+ * アプリケーション全体のレイアウト
+ * ナビゲーション、フッター、フォント設定を管理
+ */
 import type { Metadata } from "next";
+
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";

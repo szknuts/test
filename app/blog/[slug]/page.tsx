@@ -1,4 +1,9 @@
+/**
+ * ブログ記事詳細ページ
+ * 個別の記事内容を表示し、一覧ページへのリンクを提供
+ */
 import { blogPosts } from "@/lib/blog/data";
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 

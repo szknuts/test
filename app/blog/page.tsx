@@ -1,4 +1,9 @@
+/**
+ * ブログ一覧ページ
+ * 全ての記事をカード形式で表示
+ */
 import { blogPosts } from "@/lib/blog/data";
+
 import Link from "next/link";
 
 export default function BlogPage() {

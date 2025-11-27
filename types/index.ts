@@ -5,6 +5,8 @@ export interface Member {
   classification: string; // 分類（例: マネージャー、4、3など）
   position?: string; // 役職（主将、副主将など）
   weight?: string; // 階級
+  faculty?: string; // 学部
+  history?: string; // 経歴
   image?: string;
   bio?: string;
   achievements?: string[];

@@ -1,9 +1,13 @@
+/**
+ * 部員・スタッフの分類グルーピングと表示順序を管理するモジュール
+ * 分類ごとにメンバーを振り分け、指定された順序で並び替える
+ */
 import type { Member } from "@/types";
 
 const DEFAULT_CLASSIFICATION = "未分類";
 
 /**
- * 人々を分類ごとにグループ化する
+ * 分類ごとにグループ化する
  */
 export const groupByClassification = (people: Member[]) =>
   people.reduce<Record<string, Member[]>>((acc, person) => {
@@ -30,22 +34,22 @@ export const orderKeys = (
     .sort((a, b) => a.localeCompare(b, "ja")),
 ];
 
-// 部員の分類順序
-export const memberClassificationOrder = ["マネージャー", "4", "3", "2", "1"];
+/// 部員の分類順序
+export const memberClassificationOrder = ["マネージャー", "4回生", "3回生", "2回生", "1回生"];
 
-// スタッフの分類順序
+/// スタッフの分類順序
 export const staffClassificationOrder = ["部長", "総監督", "監督", "コーチ"];
 
-// 部員の分類表示名
+/// 部員の分類表示名
 export const memberClassificationDisplay: Record<string, string> = {
   マネージャー: "マネージャー",
-  "4": "4年生",
-  "3": "3年生",
-  "2": "2年生",
-  "1": "1年生",
+  "4回生": "4回生",
+  "3回生": "3回生",
+  "2回生": "2回生",
+  "1回生": "1回生",
 };
 
-// スタッフの分類表示名
+/// スタッフの分類表示名
 export const staffClassificationDisplay: Record<string, string> = {
   部長: "部長",
   総監督: "総監督",
