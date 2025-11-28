@@ -11,7 +11,7 @@ export default function NashiroNobuo() {
     name: "名城 信男",
     classification: "監督",
     image: "/data/staff/名城信男.png",
-    bio: "",
+    bio: "第16代 第18代 WBA世界スーパーフライ級チャンピオン",
   };
 
   return (

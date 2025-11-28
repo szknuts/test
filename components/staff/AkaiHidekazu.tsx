@@ -10,7 +10,7 @@ export default function AkaiHidekazu() {
     name: "赤井 英和",
     classification: "総監督",
     image: "/data/staff/赤井英和.png",
-    bio: "第16代 第18代 WBA世界スーパーフライ級チャンピオン",
+    bio: "",
   };
 
   return (
