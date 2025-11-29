@@ -23,9 +23,9 @@ export default function AkaiHidekazu() {
       transition={{ delay: 0.2 }}
       className="group relative max-w-md mx-auto md:max-w-none"
     >
-      <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-orange-500 to-red-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
+      <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-orange-500 to-red-600 rounded-none blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
       
-      <div className="relative h-full bg-black rounded-2xl overflow-hidden border border-red-900/50 flex flex-col md:flex-row shadow-2xl">
+      <div className="relative h-full bg-black rounded-none overflow-hidden border border-red-900/50 flex flex-col md:flex-row shadow-2xl">
         
         {/* 画像コンテナ */}
         <div className="relative w-full md:w-2/5 h-80 md:h-auto overflow-hidden">
@@ -66,7 +66,11 @@ export default function AkaiHidekazu() {
               {member.name}
             </h3>
             
-            <div className="h-1 w-24 bg-gradient-to-r from-yellow-500 via-red-500 to-transparent mb-6" />
+            {/* エネルギーバー装飾 */}
+            <div className="h-1 mb-1 bg-[linear-gradient(90deg,var(--color-yellow-500)_0%,var(--color-red-500)_30%,transparent_60%)]" />
+            <div className="h-2 mb-1 bg-[linear-gradient(90deg,var(--color-yellow-500)_0%,var(--color-red-500)_50%,transparent_80%)]" />
+            <div className="h-3 mb-1 bg-[linear-gradient(90deg,var(--color-yellow-500)_0%,var(--color-red-500)_70%,transparent_100%)]" />
+
             
             <p className="text-red-100 text-sm font-bold leading-relaxed drop-shadow-md whitespace-pre-wrap">
               {member.bio}

@@ -48,7 +48,7 @@ export default function KiyotakiFumi() {
           
           {/* 役職バッジ */}
           <div className="absolute top-4 left-4">
-            <span className={`inline-block px-4 py-1 ${badgeColor} text-white text-xs font-serif tracking-widest uppercase shadow-md rounded-full`}>
+            <span className={`inline-block px-4 py-1 ${badgeColor} text-white text-xs font-shippori tracking-widest uppercase shadow-md rounded-full`}>
               {member.classification}
             </span>
           </div>
@@ -58,13 +58,13 @@ export default function KiyotakiFumi() {
         <div className="p-6 md:p-8 flex-1 flex flex-col justify-center relative bg-white">
 
 
-          <h3 className="text-4xl font-serif font-medium mb-4 tracking-wide text-slate-800 drop-shadow-sm group-hover:text-pink-600 transition-colors">
+          <h3 className="text-4xl font-shippori font-medium mb-4 tracking-wide text-slate-800 drop-shadow-sm group-hover:text-pink-600 transition-colors">
             {member.name}
           </h3>
           
           <div className={`h-0.5 w-16 bg-gradient-to-r ${borderGradient} mb-6 transform origin-left group-hover:scale-x-150 transition-transform duration-500`} />
           
-          <p className="text-slate-600 text-sm leading-loose font-serif whitespace-pre-wrap tracking-wide">
+          <p className="text-slate-600 text-sm leading-loose font-shippori whitespace-pre-wrap tracking-wide">
             {member.bio}
           </p>
         </div>

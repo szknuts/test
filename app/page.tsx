@@ -25,6 +25,8 @@ import ActivitySection from "@/components/sections/ActivitySection";
 import RecruitmentCTA from "@/components/sections/RecruitmentCTA";
 import InstagramSection from "@/components/sections/InstagramSection";
 
+import MessageSection from "@/components/sections/MessageSection";
+
 export default async function Home() {
   // ローカルCSVから部員データとスタッフデータを取得
   const members = await fetchMembers();
@@ -53,6 +55,9 @@ export default async function Home() {
 
       {/* クラブ紹介セクション */}
       <ClubIntro />
+
+      {/* メッセージセクション */}
+      <MessageSection />
 
       {/* 活動内容セクション */}
       <ActivitySection />
