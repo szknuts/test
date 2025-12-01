@@ -16,6 +16,10 @@
     font-family: var(--font-shippori-mincho), serif;
   }
 
+  .font-zen-antique {
+    font-family: var(--font-zen-antique), serif;
+  }
+
   .boxing-pattern {
     background-image:
       repeating-linear-gradient(45deg,

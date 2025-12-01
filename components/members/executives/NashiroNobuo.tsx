@@ -67,7 +67,7 @@ export default function NashiroNobuo() {
 
             {/* 下部テキストコンテンツ */}
             <div className="relative z-10">
-              <h3 className="text-4xl font-black text-white mb-4 md:mb-6 tracking-tighter drop-shadow-[0_4px_8px_rgba(0,0,0,1)] uppercase italic">
+              <h3 className="text-4xl font-black font-zen-antique text-white mb-4 md:mb-6 tracking-tighter drop-shadow-[0_4px_8px_rgba(0,0,0,1)] uppercase italic">
                 {member.name}
               </h3>
               

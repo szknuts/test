@@ -50,13 +50,12 @@ export default function HeroSection() {
 
       {/* Content Container */}
       <motion.div 
-        className="relative z-10 container mx-auto px-4 text-center text-white"
+        className="relative z-10 w-full px-1 text-center text-white"
         style={{ y, opacity, scale }}
       >
         {/* Main Title */}
-        {/* Main Title */}
         <div className="mb-8 relative z-20">
-          <h1 className="text-[12vw] md:text-[10vw] font-black leading-none tracking-tighter uppercase mix-blend-difference flex flex-col items-center">
+          <h1 className="text-[19vw] sm:text-[17vw] md:text-[13vw] lg:text-[11vw] xl:text-[10vw] font-black leading-none tracking-tighter uppercase mix-blend-difference flex flex-col items-center">
             <span className="flex overflow-hidden">
               {"KINDAI".split("").map((char, i) => (
                 <motion.span
