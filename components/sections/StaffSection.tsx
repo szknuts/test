@@ -1,6 +1,6 @@
 /**
- * 部員セクションコンポーネント
- * グループ化された部員情報をセクションごとに表示する。
+ * スタッフセクションコンポーネント
+ * グループ化されたスタッフ情報をセクションごとに表示する。
  * 分類ごとのヘッダーとグリッド表示を管理する。
  */
 "use client";
@@ -20,7 +20,7 @@ type Props = {
   sectionId?: string;
 };
 
-export default function MemberSection({
+export default function StaffSection({
   groups,
   groupKeys,
   displayNames,
@@ -32,9 +32,7 @@ export default function MemberSection({
   return (
     <section id={sectionId} className={`py-24 px-4 ${bgColor} relative overflow-hidden`}>
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* セクションヘッダー */}
-        <SectionHeading title="MEMBERS" subtitle="ともにトレーニングに励む仲間たち" bg="light" />
-
+        <SectionHeading title="STAFF" subtitle="チームを支えるスタッフ" bg="light" />
 
         {groupKeys.map((classification) => {
           const members = groups[classification];

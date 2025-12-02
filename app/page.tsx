@@ -19,6 +19,7 @@ import {
   staffClassificationDisplay,
 } from "@/lib/data/grouping";
 import MemberSection from "@/components/sections/MemberSection";
+import StaffSection from "@/components/sections/StaffSection";
 import HeroSection from "@/components/sections/HeroSection";
 import ClubIntro from "@/components/sections/ClubIntro";
 import ActivitySection from "@/components/sections/ActivitySection";
@@ -64,9 +65,6 @@ export default async function Home() {
 
       {/* 部員紹介セクション */}
       <MemberSection
-        sectionId="members"
-        title="MEMBERS"
-        subtitle="ともにトレーニングに励む仲間たち"
         groups={membersByClassification}
         groupKeys={memberGroupKeys}
         displayNames={memberClassificationDisplay}
@@ -74,10 +72,7 @@ export default async function Home() {
       />
 
       {/* スタッフ紹介セクション */}
-      <MemberSection
-        sectionId="staff"
-        title="STAFF"
-        subtitle="チームを支えるスタッフ"
+      <StaffSection
         groups={staffByClassification}
         groupKeys={staffGroupKeys}
         displayNames={staffClassificationDisplay}
