@@ -17,7 +17,7 @@ export default function InstagramSection() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="inline-flex items-center justify-center p-4 bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] rounded-full text-white mb-6 shadow-lg">
+          <div className="inline-flex items-center justify-center p-4 bg-linear-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] rounded-full text-white mb-6 shadow-lg">
             <FaInstagram size={40} />
           </div>
           <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-gray-900">

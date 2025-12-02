@@ -36,7 +36,7 @@ export default function RecruitmentCTA() {
               href="https://www.instagram.com/kindaiboxing/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative px-8 py-4 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(253,29,29,0.4)] w-full sm:w-auto"
+              className="group relative px-8 py-4 bg-linear-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(253,29,29,0.4)] w-full sm:w-auto"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 <FaInstagram size={20} /> InstagramでDMする

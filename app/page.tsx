@@ -1,23 +1,9 @@
 /**
  * トップページコンポーネント
- * 
- * 役割: サイトのメインエントリーポイント
- * 機能:
- * - 各セクション（ヒーロー、紹介、活動、部員、スタッフ）の統合
- * - サーバーサイドでのデータ取得（部員、コーチ、幹部）
- * - データのグルーピングと整列
  */
 import Link from "next/link";
 
-import { fetchMembers, fetchCoaches, fetchExecutives } from "@/lib/data/fetchMembers";
-import {
-  groupByClassification,
-  orderKeys,
-  memberClassificationOrder,
-  staffClassificationOrder,
-  memberClassificationDisplay,
-  staffClassificationDisplay,
-} from "@/lib/data/grouping";
+
 import MemberSection from "@/components/sections/MemberSection";
 import StaffSection from "@/components/sections/StaffSection";
 import HeroSection from "@/components/sections/HeroSection";
@@ -29,26 +15,6 @@ import InstagramSection from "@/components/sections/InstagramSection";
 import MessageSection from "@/components/sections/MessageSection";
 
 export default async function Home() {
-  // ローカルCSVから部員データとスタッフデータを取得
-  const members = await fetchMembers();
-  const coaches = await fetchCoaches();
-  const executives = await fetchExecutives();
-  
-  // スタッフに幹部を含める
-  const staff = [...executives, ...coaches];
-
-  const membersByClassification = groupByClassification(members);
-  const staffByClassification = groupByClassification(staff);
-
-  const memberGroupKeys = orderKeys(
-    membersByClassification,
-    memberClassificationOrder
-  );
-  const staffGroupKeys = orderKeys(
-    staffByClassification,
-    staffClassificationOrder
-  );
-
   return (
     <div className="bg-white">
       {/* ヒーローセクション */}
@@ -65,24 +31,18 @@ export default async function Home() {
 
       {/* 部員紹介セクション */}
       <MemberSection
-        groups={membersByClassification}
-        groupKeys={memberGroupKeys}
-        displayNames={memberClassificationDisplay}
         bgColor="bg-white"
       />
 
       {/* スタッフ紹介セクション */}
       <StaffSection
-        groups={staffByClassification}
-        groupKeys={staffGroupKeys}
-        displayNames={staffClassificationDisplay}
         bgColor="bg-gray-50"
       />
 
-      {/* 入部募集CTA */}
+      {/* 入部募集CTAセクション */}
       <RecruitmentCTA />
 
-      {/* Instagram/SNSセクション */}
+      {/* Instagramセクション */}
       <InstagramSection />
     </div>
   );

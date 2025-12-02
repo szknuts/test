@@ -41,8 +41,8 @@ export default function HeroSection() {
           sizes="100vw"
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/20 to-black/90" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-transparent via-black/20 to-black/90" />
       </div>
 
       {/* Red Blur Effect */}
@@ -135,7 +135,7 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-[1px] h-12 bg-gradient-to-b from-red-600 to-transparent"
+          className="w-px h-12 bg-linear-to-b from-red-600 to-transparent"
         />
       </motion.div>
     </section>
