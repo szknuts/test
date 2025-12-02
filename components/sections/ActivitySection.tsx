@@ -6,6 +6,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionHeading from "../ui/SectionHeading";
 
 const schedule = [
   { 
@@ -39,19 +40,10 @@ export default function ActivitySection() {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 skew-x-12 transform origin-top-right z-0" />
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-24 text-center relative">
-          <h2 className="text-6xl md:text-9xl font-black tracking-tighter text-gray-900 opacity-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full select-none">
-            ACTIVITY
-          </h2>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 relative z-10">
-            ACTIVITY
-          </h2>
-          <div className="mt-6 flex justify-center">
-            <div className="bg-red-600 text-white font-bold py-1 px-6 text-sm tracking-[0.3em] uppercase skew-x-[-12deg]">
-              活動内容
-            </div>
-          </div>
-        </div>
+        {/* セクションヘッダー */}
+        <SectionHeading title="ACTIVITY" subtitle="活動内容" bg="light" />
+
+
 
         <div className="grid lg:grid-cols-2 gap-20">
           {/* Weekly Schedule */}

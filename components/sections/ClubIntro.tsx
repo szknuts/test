@@ -1,12 +1,11 @@
 /**
  * クラブ紹介セクション (OUR SPIRIT)
- * 部の精神や哲学（強靭、結束、勝利）を3つの柱として紹介する。
- * ダークモードのデザインを採用。
  */
 "use client";
 
 import { motion } from "framer-motion";
 import { FaDumbbell, FaHandshake, FaTrophy } from "react-icons/fa";
+import SectionHeading from "../ui/SectionHeading";
 
 const features = [
   {
@@ -40,26 +39,16 @@ export default function ClubIntro() {
     <section className="py-32 px-4 bg-black relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-600 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-600 to-transparent" />
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-gray-800 to-transparent" />
-        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-gray-800 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-red-600 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-red-600 to-transparent" />
+        <div className="absolute top-0 left-1/4 w-px h-full bg-linear-to-b from-transparent via-gray-800 to-transparent" />
+        <div className="absolute top-0 right-1/4 w-px h-full bg-linear-to-b from-transparent via-gray-800 to-transparent" />
       </div>
 
+      
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-24 text-center relative">
-          <h2 className="text-6xl md:text-9xl font-black tracking-tighter text-white opacity-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full select-none">
-            OUR SPIRIT
-          </h2>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white relative z-10">
-            OUR SPIRIT
-          </h2>
-          <div className="mt-6 flex justify-center">
-            <div className="bg-red-600 text-white font-bold py-1 px-6 text-sm tracking-[0.3em] uppercase skew-x-[-12deg]">
-              近畿大学ボクシング部の精神
-            </div>
-          </div>
-        </div>
+        {/* セクションヘッダー */}
+        <SectionHeading title="OUR SPIRIT" subtitle="近大ボクシング部の精神" bg="dark" />
 
         <div className="grid md:grid-cols-3 gap-12">
           {features.map((feature) => (

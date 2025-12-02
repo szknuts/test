@@ -8,6 +8,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
+import SectionHeading from "../ui/SectionHeading";
 
 export default function MessageSection() {
   return (
@@ -16,20 +17,11 @@ export default function MessageSection() {
       <div className="absolute top-0 left-0 w-1/3 h-full bg-gray-50 -skew-x-12 transform origin-top-left z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* セクションヘッダー - 標準デザイン */}
-        <div className="mb-24 text-center relative">
-          <h2 className="text-6xl md:text-9xl font-black tracking-tighter text-gray-900 opacity-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full select-none">
-            RECRUIT
-          </h2>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 relative z-10">
-            RECRUIT
-          </h2>
-          <div className="mt-6 flex justify-center">
-            <div className="bg-red-600 text-white font-bold py-1 px-6 text-sm tracking-[0.3em] uppercase skew-x-[-12deg]">
-              部員募集
-            </div>
-          </div>
-        </div>
+
+        {/* セクションヘッダー */}
+        <SectionHeading title="RECRUIT" subtitle="部員募集" bg="light" />
+
+
 
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -91,7 +83,7 @@ export default function MessageSection() {
                 href="https://www.instagram.com/kindai_boxing/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-10 text-lg rounded-full hover:opacity-90 transition-opacity shadow-lg transform hover:-translate-y-1"
+                className="inline-flex items-center gap-3 bg-linear-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-10 text-lg rounded-full hover:opacity-90 transition-opacity shadow-lg transform hover:-translate-y-1"
               >
                 <FaInstagram size={24} />
                 <span>Instagramでメッセージを送る</span>

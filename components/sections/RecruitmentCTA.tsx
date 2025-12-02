@@ -1,5 +1,5 @@
 /**
- * 入部募集CTAセクション
+ * 入部募集セクション
  * 新入部員勧誘のためのCall To Actionを表示する。
  */
 "use client";
@@ -13,7 +13,7 @@ export default function RecruitmentCTA() {
     <section className="py-32 px-4 relative overflow-hidden bg-black">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900 via-black to-black" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-red-900 via-black to-black" />
       </div>
       
       <div className="max-w-5xl mx-auto relative z-10 text-center">
