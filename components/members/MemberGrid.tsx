@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import { Member } from "@/types";
 import dynamic from "next/dynamic";
 import MemberCard from "./MemberCard";
+import CoachCard from "./CoachCard";
 
 const KiyotakiFumi = dynamic(() => import("./executives/KiyotakiFumi"));
 const AkaiHidekazu = dynamic(() => import("./executives/AkaiHidekazu"));
@@ -40,14 +41,7 @@ export default function MemberGrid({
           if (member.classification === "総監督") return <AkaiHidekazu key={member.id} />;
           if (member.classification === "監督") return <NashiroNobuo key={member.id} />;
           
-          return (
-            <MemberCard 
-              key={member.id}
-              member={member} 
-              onClick={() => onMemberClick(member)}
-              variant="wide"
-            />
-          );
+          return null;
         })}
       </div>
     );
@@ -60,11 +54,17 @@ export default function MemberGrid({
           key={member.id}
           className="transform hover:-translate-y-1 transition-transform duration-300"
         >
-          <MemberCard 
-            member={member} 
-            onClick={() => onMemberClick(member)}
-            variant={member.classification === "コーチ" ? "coach" : "standard"}
-          />
+          {member.classification === "コーチ" ? (
+            <CoachCard
+              member={member}
+              onClick={() => onMemberClick(member)}
+            />
+          ) : (
+            <MemberCard 
+              member={member} 
+              onClick={() => onMemberClick(member)}
+            />
+          )}
         </div>
       ))}
     </div>

@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { Member } from "@/types";
 import { parseCSV } from "@/lib/utils/csv";
-import { COACHES_DATA } from "./coaches";
+
 import { getPath } from "@/lib/utils/path";
 import { mapClassification } from "@/lib/data/mappers";
 
@@ -21,19 +21,7 @@ async function readCSV(filename: string): Promise<Record<string, string>[]> {
 
 
 
-/**
- * 幹部データの取得（ダミー）
- * 
- * 役割: セクションのグルーピングロジックを機能させるためのダミーデータを返す
- * 実際の表示: MemberGridコンポーネント内で専用コンポーネントに分岐して表示される
- */
-export async function fetchExecutives(): Promise<Member[]> {
-  return [
-    { id: "exec_president", name: "清滝 ふみ", classification: "部長" },
-    { id: "exec_general_director", name: "赤井 英和", classification: "総監督" },
-    { id: "exec_director", name: "名城 信男", classification: "監督" },
-  ];
-}
+
 
 /**
  * 部員データの取得
@@ -55,16 +43,4 @@ export async function fetchMembers(): Promise<Member[]> {
   }));
 }
 
-/**
- * コーチデータの取得
- * 
- * 役割: 定数ファイルからコーチデータを読み込み、IDを付与して返す
- */
-export async function fetchCoaches(): Promise<Member[]> {
-  return COACHES_DATA.map((member, index) => ({
-    ...member,
-    id: `coach_${index}`,
-    position: member.classification,
-    image: getPath(member.image || ""),
-  }));
-}
+
