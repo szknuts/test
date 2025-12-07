@@ -3,7 +3,7 @@ export interface Person {
   id: string;
   name: string; //名前
   classification: string; // 分類（学年・マネージャー・指導者役職）
-  position?: string; // 役職（主将、副主将など）
+  position?: string; // 役職（主将、副主将、監督など）
   weight?: string; // 階級
   faculty?: string; // 学部
   image?: string;
