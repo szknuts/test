@@ -32,7 +32,10 @@ export default function MemberSectionClient({
   const [selectedMember, setSelectedMember] = useState<Person | null>(null);
 
   return (
-    <section className={`py-24 px-4 ${bgColor} relative overflow-hidden`}>
+    <section
+      id="members"
+      className={`py-24 px-4 ${bgColor} relative overflow-hidden`}
+    >
       <div className="max-w-7xl mx-auto relative z-10">
         {/* セクションヘッダー */}
         <SectionHeading
