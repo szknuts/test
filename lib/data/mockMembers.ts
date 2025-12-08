@@ -6,7 +6,7 @@ import { getPath } from "@/lib/utils/path";
 export const MOCK_MEMBERS: Person[] = [
   {
     id: "2210001",
-    name: "山田 山之助",
+    name: "鬼山田 山之助",
     classification: "4年",
     position: "主将",
     weight: "ミドル級",
