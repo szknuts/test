@@ -8,8 +8,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
     remotePatterns: [
-      { protocol: "https", hostname: "drive.google.com" },
-      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+      {
+        protocol: "https",
+        hostname: "pub-5b269ede3a39498185ad4ed137bf812c.r2.dev",
+      },
     ],
   },
 };
