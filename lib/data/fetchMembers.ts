@@ -1,8 +1,4 @@
-import fs from "fs";
-import path from "path";
 import { Person } from "@/types";
-import { parseCSV } from "@/lib/utils/csv";
-import { getPath } from "@/lib/utils/path";
 
 // クライアントサイドでのデータ取得用関数
 export async function fetchMembers(): Promise<Person[]> {

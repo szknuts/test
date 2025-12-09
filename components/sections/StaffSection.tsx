@@ -18,7 +18,6 @@ import {
   staffClassificationOrder,
 } from "@/lib/data/grouping";
 import CategoryHeading from "../ui/CategoryHeading";
-import KiyotakiFumi from "../person/KiyotakiFumi";
 
 type Props = {
   bgColor?: string;

@@ -12,7 +12,6 @@
 /**
  * 部員一覧グリッド表示コンポーネント
  */
-import { motion } from "framer-motion";
 import { Person } from "@/types";
 import dynamic from "next/dynamic";
 import MemberCard from "./MemberCard";
@@ -25,7 +24,7 @@ const NashiroNobuo = dynamic(() => import("./NashiroNobuo"));
 type Props = {
   members: Person[];
   isSpecialRole: boolean;
-  onMemberClick: (member: Person) => void;
+  onMemberClick?: (member: Person) => void;
 };
 
 export default function Grid({ members, isSpecialRole, onMemberClick }: Props) {
@@ -54,9 +53,15 @@ export default function Grid({ members, isSpecialRole, onMemberClick }: Props) {
           className="transform hover:-translate-y-1 transition-transform duration-300"
         >
           {member.classification === "コーチ" ? (
-            <CoachCard member={member} onClick={() => {}} />
+            <CoachCard
+              member={member}
+              onClick={onMemberClick ? () => onMemberClick(member) : undefined}
+            />
           ) : (
-            <MemberCard member={member} onClick={() => {}} />
+            <MemberCard
+              member={member}
+              onClick={onMemberClick ? () => onMemberClick(member) : undefined}
+            />
           )}
         </div>
       ))}

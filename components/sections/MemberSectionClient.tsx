@@ -8,11 +8,8 @@
  */
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
 import type { Person } from "@/types";
 import Grid from "../person/Grid";
-import TeamMemberModal from "../person/TeamMemberModal";
 import SectionHeading from "../ui/SectionHeading";
 import CategoryHeading from "../ui/CategoryHeading";
 
@@ -29,8 +26,6 @@ export default function MemberSectionClient({
 
   bgColor = "bg-gray-50",
 }: Props) {
-  const [selectedMember, setSelectedMember] = useState<Person | null>(null);
-
   return (
     <section
       id="members"
@@ -54,24 +49,11 @@ export default function MemberSectionClient({
             <div key={classification} className="mb-24">
               <CategoryHeading title={classification} />
 
-              <Grid
-                members={members}
-                isSpecialRole={isSpecialRole}
-                onMemberClick={setSelectedMember}
-              />
+              <Grid members={members} isSpecialRole={isSpecialRole} />
             </div>
           );
         })}
       </div>
-
-      <AnimatePresence>
-        {selectedMember && (
-          <TeamMemberModal
-            member={selectedMember}
-            onClose={() => setSelectedMember(null)}
-          />
-        )}
-      </AnimatePresence>
     </section>
   );
 }

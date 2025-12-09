@@ -7,14 +7,16 @@ import type { Person } from "@/types";
 
 type CoachCardProps = {
   member: Person;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export default function CoachCard({ member, onClick }: CoachCardProps) {
   return (
-    <div 
+    <div
       onClick={onClick}
-      className="group relative h-full bg-gray-950 rounded-none overflow-hidden cursor-pointer border border-gray-800 hover:border-gray-600 transition-all duration-300"
+      className={`group relative h-full bg-gray-950 rounded-none overflow-hidden border border-gray-800 hover:border-gray-600 transition-all duration-300 ${
+        onClick ? "cursor-pointer" : ""
+      }`}
     >
       {/* Image Container */}
       <div className="relative aspect-3/4 overflow-hidden">
@@ -26,12 +28,12 @@ export default function CoachCard({ member, onClick }: CoachCardProps) {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-linear-to-t from-gray-950 via-transparent to-transparent opacity-80" />
-        
+
         {/* Position Badge */}
         <div className="absolute top-3 left-3">
-           <span className="inline-block px-3 py-1 bg-gray-800 text-white text-xs font-bold tracking-widest uppercase border border-gray-600">
-             {member.position || "COACH"}
-           </span>
+          <span className="inline-block px-3 py-1 bg-gray-800 text-white text-xs font-bold tracking-widest uppercase border border-gray-600">
+            {member.position || "COACH"}
+          </span>
         </div>
       </div>
 

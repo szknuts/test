@@ -20,9 +20,10 @@
     - [ ] 顔写真データを集める。
     - [ ] 画像ファイルの軽量化(WebP変換)と命名規則の統一を行う。
     - [ ] R2に顔写真をアップロードする。
-- [ ] コードベースの健全化 (Technical)
+- [/] コードベースの健全化 (Technical)
     - [ ] 未使用なコンポーネントや画像の削除 (クリーンアップ)。
     - [ ] `npm run build` および `npm run lint` がエラーなく通ることを確認する。
+        - [ ] ESLint設定 (`eslint.config.mjs`) の修正。 (現在ビルドエラー発生中)
 
 ## 2. サーバー移行と本番公開
 GitHub PagesからNext.jsに適した環境へ移行し、独自のドメインで公開します。
@@ -72,9 +73,15 @@ GitHub PagesからNext.jsに適した環境へ移行し、独自のドメイン�
     - [ ] 画像アップローダー: R2へ画像を保存し、URLを取得する機能。
     - [ ] 名簿編集機能: D1上のメンバーデータを追加・更新・削除する画面。
     - [ ] ニュース投稿機能: タイトルと本文を入力し、記事として保存する画面。
-- [x] フロントエンド改修
-    - [x] 現在のCSV読み込みロジックを廃止し、D1からデータを取得するロジックへ変更 (API Route作成)。
-    - [ ] ブログ/ニュース一覧・詳細ページの新規作成。
+- [x] フロントエンド改修 (Cloudflare D1対応)
+    - [x] Cloudflare D1データベースのスキーマ定義 (`wrangler.json`)。
+    - [x] Next.js API Route (`app/api/members/route.ts`) の実装。`getRequestContext` を使用してD1バインディングにアクセス。
+    - [x] `fetchMembers` をCSV読み込みからAPI経由に変更。
+    - [x] Cloudflare Pagesデプロイ環境の修正。
+        - [x] `@cloudflare/next-on-pages` の導入。
+        - [x] ビルドエラー対応: Next.js v16 (Turbopack) との非互換性のため、Next.js v15.0.3 へダウングレード。
+        - [x] `wrangler.json` へのD1 ID設定。
 - [ ] 本番移行
-    - [ ] VercelからCloudflare Pagesへデプロイ先を変更。
+    - [x] Cloudflare Pagesへデプロイ (デプロイ環境構築完了)。
+    - [ ] Cloudflare Pages管理画面でのD1バインディング設定 (手動)。
     - [ ] DNS設定を切り替え、完全移行。
