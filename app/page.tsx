@@ -18,8 +18,8 @@ export default async function Home() {
       <ClubIntro />
       <MessageSection />
       <ActivitySection />
-      <MemberSection/>
-      <StaffSection/>
+      <MemberSection />
+      <StaffSection />
       <RecruitmentCTA />
       <InstagramSection />
     </div>

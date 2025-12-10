@@ -1,49 +1,54 @@
 @import "tailwindcss";
 
+@theme {
+  /* Colors */
+  --color-base-black: #0a0a0a;
+  --color-base-white: #fafafa;
+  --color-accent-red: #c00000; /* Kindai Red */
+
+  /* Fonts */
+  --font-sans: var(--font-noto-sans-jp), sans-serif;
+  --font-shippori: var(--font-shippori-mincho), serif;
+  --font-zen-antique: var(--font-zen-antique), serif;
+}
+
+/* Custom Utilities */
+@utility text-gradient {
+  @apply bg-linear-to-r from-[--color-base-black] to-[--color-accent-red] bg-clip-text text-transparent;
+}
+
+@utility boxing-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    color-mix(in srgb, var(--color-accent-red), transparent 97%) 10px,
+    color-mix(in srgb, var(--color-accent-red), transparent 97%) 20px
+  );
+}
+
 @layer base {
   body {
-    @apply bg-white text-gray-900;
-    font-family: var(--font-noto-sans-jp), sans-serif;
+    @apply bg-white text-gray-900 antialiased;
+    font-family: var(--font-sans);
   }
 }
 
-@layer utilities {
-  .text-gradient {
-    @apply bg-linear-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent;
+/* Animations using standard CSS since v4 supports it natively better, or keep using tailwind config if preferred. 
+   For now, keeping the custom animation simple. 
+*/
+@keyframes gradient-xy {
+  0% {
+    background-position: 0% 50%;
   }
-
-  .font-shippori {
-    font-family: var(--font-shippori-mincho), serif;
+  50% {
+    background-position: 100% 50%;
   }
-
-  .font-zen-antique {
-    font-family: var(--font-zen-antique), serif;
+  100% {
+    background-position: 0% 50%;
   }
+}
 
-  .boxing-pattern {
-    background-image:
-      repeating-linear-gradient(45deg,
-        transparent,
-        transparent 10px,
-        rgba(30, 58, 138, 0.03) 10px,
-        rgba(30, 58, 138, 0.03) 20px);
-  }
-
-  @keyframes gradient-xy {
-    0% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .animate-gradient-xy {
-    animation: gradient-xy 6s ease infinite;
-  }
+.animate-gradient-xy {
+  animation: gradient-xy 6s ease infinite;
 }
