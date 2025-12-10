@@ -30,14 +30,14 @@ export default function NashiroNobuo() {
       {/* <div className="absolute -inset-8 bg-gradient-to-r from-red-700 to-black opacity-0 group-hover:opacity-30 blur-3xl transition-opacity duration-500 rounded-none animate-pulse" /> */}
 
       {/* カードコンテナ -  平行四辺形 */}
-      <div className="relative rounded-none shadow-[0_0_30px_rgba(153,27,27,0.2)] group-hover:shadow-[0_0_60px_rgba(220,38,38,0.6)] transform -skew-x-6 mx-1 md:mx-0 p-2">
+      <div className="relative rounded-none shadow-[0_0_30px_rgba(153,27,27,0.2)] group-hover:shadow-[0_0_60px_rgba(220,38,38,0.6)] transform -skew-x-6 mx-1 md:mx-0 p-2 mb-8">
         {/* アニメーションボーダー背景 */}
         <div className="absolute inset-0 bg-linear-to-br from-red-950 via-red-500 to-red-950 bg-size-[400%_400%] animate-gradient-xy" />
 
         {/* コンテンツラッパー */}
         <div className="relative h-full w-full bg-black overflow-hidden">
-          {/* 画像コンテナ - 自然なアスペクト比 */}
-          <div className="relative w-full h-[550px] md:h-auto transform skew-x-6 scale-110 origin-center">
+          {/* 画像コンテナ */}
+          <div className="relative w-full aspect-4/3 md:aspect-video transform skew-x-6 scale-115 md:scale-110 origin-center">
             <motion.img
               src={person.image_url || "/images/default.png"}
               alt={person.name}
@@ -49,15 +49,9 @@ export default function NashiroNobuo() {
               transition={{ duration: 0.5 }}
             />
 
-            {/* グラデーションオーバーレイ: 下部を濃く */}
-            <div className="absolute inset-0 bg-linear-to-t from-black via-black/5 to-transparent " />
+            {/* グラデーションオーバーレイ */}
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent" />
           </div>
-
-          {/* 浮遊する赤い粒子（控えめ） */}
-          {/* <div className="absolute bottom-0 left-0 w-full h-1/2 overflow-hidden pointer-events-none transform skew-x-6">
-             <div className="absolute bottom-[-20%] left-[-10%] w-1/2 h-1/2 bg-red-600/20 blur-[80px] rounded-full mix-blend-screen animate-pulse" />
-             <div className="absolute bottom-[-20%] right-[-10%] w-1/2 h-1/2 bg-red-800/20 blur-[80px] rounded-full mix-blend-screen animate-pulse" />
-          </div> */}
 
           {/* コンテンツオーバーレイ */}
           <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-end transform skew-x-6">
@@ -68,21 +62,38 @@ export default function NashiroNobuo() {
               </span>
             </div>
 
-            {/* 下部テキストコンテンツ */}
-            <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-zen-antique text-white mb-4 md:mb-6 tracking-tighter drop-shadow-[0_4px_8px_rgba(0,0,0,1)]">
+            {/* 名前 */}
+            <div className="relative z-10 flex flex-col items-center md:items-end pb-4 md:pb-2 md:pr-2">
+              <h3 className="text-4xl md:text-5xl font-zen-antique text-white tracking-tighter drop-shadow-[0_4px_8px_rgba(0,0,0,1)] text-center md:text-right">
                 {person.name}
               </h3>
-
-              {/* エネルギーバー装飾 */}
-              <div className="h-1.5 w-32 md:w-48 bg-neutral-800 rounded-full mb-4 md:mb-6 overflow-hidden border border-neutral-700">
-                <div className="h-full w-full bg-linear-to-r from-red-900 via-red-500 to-red-900 animate-[shimmer_2s_infinite]" />
-              </div>
-
-              <p className="text-neutral-200 text-sm md:text-base font-bold leading-relaxed whitespace-pre-wrap p-2  bg-black/10 backdrop-blur-sm  rounded-r-lg max-w-xl text-center">
-                {person.bio}
-              </p>
+              <div className="h-1 w-24 bg-red-600 mt-2 transform skew-x-12" />
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bio (枠外に配置) - 圧倒的な黒/赤デザイン */}
+      <div className="flex justify-center px-4">
+        <div className="relative max-w-xl w-full transform -skew-x-6">
+          {/* 背景 & ボーダー */}
+          <div className="absolute inset-0 bg-linear-to-r from-black via-red-950 to-black border border-red-800/50 shadow-[0_0_20px_rgba(220,38,38,0.3)]" />
+
+          {/* コンテンツ (Skewを戻して文字を読みやすく) */}
+          <div className="relative z-10 py-6 px-8 text-center transform skew-x-6">
+            {/* 装飾ライン */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-px bg-linear-to-r from-transparent via-red-500 to-transparent" />
+
+            <p className="text-white text-lg md:text-xl font-bold font-zen-antique leading-relaxed tracking-wider drop-shadow-md">
+              第16代 第18代
+              <br />
+              WBA世界スーパーフライ級
+              <br />
+              チャンピオン
+            </p>
+
+            {/* 装飾ライン (下) */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-px bg-linear-to-r from-transparent via-red-500 to-transparent" />
           </div>
         </div>
       </div>
