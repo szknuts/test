@@ -33,7 +33,7 @@ export const COACHES_DATA: Person[] = [
     bio: null,
   },
   {
-    id: 9002,
+    id: 9003,
     name: "國重 憲司",
     grade: "コーチ",
     is_manager: 0,
