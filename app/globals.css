@@ -7,9 +7,9 @@
   --color-accent-red: #c00000; /* Kindai Red */
 
   /* Fonts */
-  --font-sans: var(--font-noto-sans-jp), sans-serif;
-  --font-shippori: var(--font-shippori-mincho), serif;
-  --font-zen-antique: var(--font-zen-antique), serif;
+  --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui, sans-serif;
+  --font-shippori: var(--font-shippori-mincho), "Times New Roman", serif;
+  --font-zen-antique: var(--font-zen-antique), "Times New Roman", serif;
 }
 
 /* Custom Utilities */

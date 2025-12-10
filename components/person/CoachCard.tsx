@@ -40,7 +40,7 @@ export default function CoachCard({ member, onClick }: CoachCardProps) {
 
       {/* Content */}
       <div className="absolute bottom-0 left-0 w-full p-4">
-        <h3 className="text-xl font-black text-white italic tracking-tighter mb-1 group-hover:text-gray-300 transition-colors">
+        <h3 className="text-xl font-black text-white tracking-tighter mb-1 group-hover:text-gray-300 transition-colors">
           {member.name}
         </h3>
         <div className="w-8 h-1 bg-gray-700 transform origin-left group-hover:scale-x-150 transition-transform duration-300" />
