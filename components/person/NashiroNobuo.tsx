@@ -29,7 +29,7 @@ export default function NashiroNobuo() {
       {/* <div className="absolute -inset-8 bg-gradient-to-r from-red-700 to-black opacity-0 group-hover:opacity-30 blur-3xl transition-opacity duration-500 rounded-none animate-pulse" /> */}
 
       {/* カードコンテナ -  平行四辺形 */}
-      <div className="relative rounded-none shadow-[0_0_30px_rgba(153,27,27,0.2)] group-hover:shadow-[0_0_60px_rgba(220,38,38,0.6)] transform -skew-x-6 mx-4 md:mx-0 p-2">
+      <div className="relative rounded-none shadow-[0_0_30px_rgba(153,27,27,0.2)] group-hover:shadow-[0_0_60px_rgba(220,38,38,0.6)] transform -skew-x-6 mx-1 md:mx-0 p-2">
         {/* アニメーションボーダー背景 */}
         <div className="absolute inset-0 bg-linear-to-br from-red-950 via-red-500 to-red-950 bg-size-[400%_400%] animate-gradient-xy" />
 
@@ -59,7 +59,7 @@ export default function NashiroNobuo() {
           </div> */}
 
           {/* コンテンツオーバーレイ */}
-          <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end transform skew-x-6">
+          <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-end transform skew-x-6">
             {/* 役職バッジ */}
             <div className="absolute top-6 left-6 md:top-8 md:left-8">
               <span className="inline-block px-4 py-1 border border-red-500/50 bg-black/60 backdrop-blur-md text-red-400 font-black tracking-widest text-sm uppercase shadow-lg transform -skew-x-6">
@@ -71,7 +71,7 @@ export default function NashiroNobuo() {
 
             {/* 下部テキストコンテンツ */}
             <div className="relative z-10">
-              <h3 className="text-4xl font-black font-zen-antique text-white mb-4 md:mb-6 tracking-tighter drop-shadow-[0_4px_8px_rgba(0,0,0,1)] uppercase italic">
+              <h3 className="text-3xl md:text-4xl font-black font-zen-antique text-white mb-4 md:mb-6 tracking-tighter drop-shadow-[0_4px_8px_rgba(0,0,0,1)] uppercase italic">
                 {person.name}
               </h3>
 
